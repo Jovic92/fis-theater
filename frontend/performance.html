@@ -33,10 +33,25 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="inputGroup-sizing-default">Show name</span>
                     </div>
-                    <input type="text" class="form-control" aria-label="Default"
-                        aria-describedby="inputGroup-sizing-default" v-model="showNameForSearch">
+                    <!-- <input type="text" class="form-control" aria-label="Default"
+                        aria-describedby="inputGroup-sizing-default" v-model="showNameForSearch"> -->
+                    <select v-on:click="setSelectedShow" class="form-select" aria-label="Default select example" v-model="showNameForSearch">
+                        <option v-for="show in shows" >{{show.name}}
+                        </option>
+                    </select>
+                    <!-- :value="show" -->
                 </div>
                 <button class="btn btn-primary" v-on:click="getPerformanceDateAndSceneName">Search</button>
+                <br><br><br>
+                <div>
+                    {{show.name}}<br>
+                    {{show.description}}<br>
+                    {{show.length}}<br>
+                     <div v-for="g in show.genres">
+                        {{g}}
+                    </div> 
+                </div>
+
                 <br><br><br>
                 <table class="table table-striped">
                     <thead>
@@ -54,7 +69,7 @@
                         </tr>
                     </tbody>
                 </table>
-            
+
             </section>
         </div>
     </div>
