@@ -1,5 +1,6 @@
 package com.fis.theatre.web.rest;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,8 +56,10 @@ public class VisitorController {
 	//update a Visitor send id
 	
 	@RequestMapping("/visitors/get/{id}")
-	public VisitorDTO findById(@PathVariable int id){
-		return visitorService.findById(id);
+	public List<VisitorDTO> findById(@PathVariable int id){
+		List<VisitorDTO> list = new ArrayList<VisitorDTO>();
+		list.add(visitorService.findById(id));
+		return list;
 	}
 	
 	@RequestMapping("/visitors/get/{firstname}/{lastname}")

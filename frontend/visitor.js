@@ -3,7 +3,8 @@ Vue.createApp({
         return {
             visitor: {
                 firstname: '',
-                lastname: ''
+                lastname: '',
+                visitorId: 0
             },
             visitors: []
         }
@@ -20,8 +21,19 @@ Vue.createApp({
                 })
         },
         findVisitor() {
+
+
             axios
                 .get("http://localhost:8080/visitors/get/" + this.visitor.firstname + "/" + this.visitor.lastname)
+                .then(response => this.visitors = response.data)
+                .catch(function (error) {
+                    console.log(error)
+                    alert("AN ERROR HAS OCCURED")
+                })
+        },
+        findVisitorById() {
+            axios
+                .get("http://localhost:8080/visitors/get/" + this.visitor.visitorId)
                 .then(response => this.visitors = response.data)
                 .catch(function (error) {
                     console.log(error)
