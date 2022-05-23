@@ -84,6 +84,10 @@
                             <th scope="row">{{visitor.visitorId}}</th>
                             <td>{{visitor.firstname}}</td>
                             <td>{{visitor.lastname}}</td>
+                            <td>
+                                <button type="button" class="btn btn-danger"
+                                    v-on:click="deleteVisitor(visitor.visitorId)">Delete</button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>

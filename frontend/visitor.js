@@ -14,11 +14,15 @@ Vue.createApp({
             // alert("ABOUT TO ADD VISITOR " + this.visitor.firstname + " " + this.visitor.lastname)
             axios
                 .post("http://localhost:8080/visitor/save", this.visitor)
-                .then(response => console.log(response))
+                .then(response => {
+                    console.log(response)
+                    this.getAllVisitors()
+                })
                 .catch(function (error) {
                     console.log(error)
                     alert("AN ERROR HAS OCCURED")
                 })
+
         },
         findVisitor() {
 
@@ -43,22 +47,37 @@ Vue.createApp({
         updateVisitor() {
             axios
                 .put("http://localhost:8080/visitor/save", this.visitor)
-                .then(response => console.log(response))
+                .then(response => {
+                    console.log(response)
+                    this.getAllVisitors()
+                })
                 .catch(function (error) {
                     console.log(error)
                     alert("AN ERROR HAS OCCURED")
                 })
-        }
-        // getAllVisitors() {
-        //     axios
-        //         .get("http://localhost:8080/visitor/getAll")
-        //         .then(response => console.log(response))
-        //         .catch(function (error) {
-        //             console.log(error)
-        //             alert("AN ERROR HAS OCCURED")
-        //         })
+        },
+        deleteVisitor(vid) {
+            axios
+                .delete("http://localhost:8080/visitor/delete/" + vid)
+                .then(response => {
+                    console.log(response)
+                    this.getAllVisitors()
+                })
+                .catch(function (error) {
+                    console.log(error)
+                    alert("AN ERROR HAS OCCURED")
+                })
+        },
+        getAllVisitors() {
+            axios
+                .get("http://localhost:8080/visitors/getAll")
+                .then(response => this.visitors = response.data)
+                .catch(function (error) {
+                    console.log(error)
+                    alert("AN ERROR HAS OCCURED")
+                })
 
-        // }
+        }
     },
     mounted: function () {
         axios
