@@ -4,7 +4,8 @@ Vue.createApp({
             visitor: {
                 firstname: '',
                 lastname: ''
-            }
+            },
+            visitors: []
         }
     },
     methods: {
@@ -17,9 +18,34 @@ Vue.createApp({
                     console.log(error)
                     alert("AN ERROR HAS OCCURED")
                 })
+        },
+        findVisitor() {
+            axios
+                .get("http://localhost:8080/visitors/get/" + this.visitor.firstname + "/" + this.visitor.lastname)
+                .then(response => this.visitors = response.data)
+                .catch(function (error) {
+                    console.log(error)
+                    alert("AN ERROR HAS OCCURED")
+                })
         }
+        // getAllVisitors() {
+        //     axios
+        //         .get("http://localhost:8080/visitor/getAll")
+        //         .then(response => console.log(response))
+        //         .catch(function (error) {
+        //             console.log(error)
+        //             alert("AN ERROR HAS OCCURED")
+        //         })
+
+        // }
     },
     mounted: function () {
-
+        axios
+            .get("http://localhost:8080/visitors/getAll")
+            .then(response => this.visitors = response.data)
+            .catch(function (error) {
+                console.log(error)
+                alert("AN ERROR HAS OCCURED")
+            })
     }
 }).mount("#visitor")
