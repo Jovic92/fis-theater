@@ -107,15 +107,9 @@ public class VisitorService {
 	}
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	public void deleteVisitor(int id) {
+		visitorRepo.deleteById(id);
+	}
 	
 	
 	

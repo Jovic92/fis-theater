@@ -21,7 +21,7 @@ public class VisitorController {
 
 	@Autowired
 	VisitorService visitorService;
-	
+
 //	@RequestMapping(value = "/visitor/save", method = RequestMethod.POST)
 //	public Visitor saveVisitor(@RequestBody Visitor v) {
 //		Visitor newVisitor =  visitorService.insertVisitor(v);
@@ -29,48 +29,50 @@ public class VisitorController {
 //		
 ////		return visitorService.insertVisitor(v);
 //	}
-	
-	
+
 	@RequestMapping(value = "/visitor/save", method = RequestMethod.POST)
 	public VisitorDTO saveVisitor(@RequestBody VisitorDTO v) {
-		VisitorDTO newVisitor =  visitorService.insertVisitor(v);
+		VisitorDTO newVisitor = visitorService.insertVisitor(v);
 		return newVisitor;
-		
+
 //		return visitorService.insertVisitor(v);
 	}
-	
+
 //	@RequestMapping("/visitors/getAll")
 //	public List<Visitor> getAll(){
 //		return visitorService.getAll();
 //	}
-	
-	
+
 	@RequestMapping("/visitors/getAll")
-	public List<VisitorDTO> getAll(){
+	public List<VisitorDTO> getAll() {
 		return visitorService.getAll();
 	}
-	
+
 	// get a Visitor byID
 	// get a Visitor byFirstORLastName
-	//	List<Visitor> findByFirstnameOrLastname(String firstname, String lastname); 
-	//update a Visitor send id
-	
+	// List<Visitor> findByFirstnameOrLastname(String firstname, String lastname);
+	// update a Visitor send id
+
 	@RequestMapping("/visitors/get/{id}")
-	public List<VisitorDTO> findById(@PathVariable int id){
+	public List<VisitorDTO> findById(@PathVariable int id) {
 		List<VisitorDTO> list = new ArrayList<VisitorDTO>();
 		list.add(visitorService.findById(id));
 		return list;
 	}
-	
+
 	@RequestMapping("/visitors/get/{firstname}/{lastname}")
-	public List<VisitorDTO> findByFirstOrLastName(@PathVariable String firstname, @PathVariable String lastname){
-		return visitorService.findByFirstnameOrLastname(firstname,lastname);
+	public List<VisitorDTO> findByFirstOrLastName(@PathVariable String firstname, @PathVariable String lastname) {
+		return visitorService.findByFirstnameOrLastname(firstname, lastname);
 	}
-	
+
 	@RequestMapping(value = "/visitor/save", method = RequestMethod.PUT)
 	public VisitorDTO updateVisitor(@RequestBody VisitorDTO v) {
-		VisitorDTO newVisitor =  visitorService.updateVisitor(v);
+		VisitorDTO newVisitor = visitorService.updateVisitor(v);
 		return newVisitor;
 	}
-	
+
+	@RequestMapping(value = "/visitor/delete/{id}", method = RequestMethod.DELETE)
+	public void deleteVisitor(@PathVariable int id) {
+		visitorService.deleteVisitor(id);
+	}
 }

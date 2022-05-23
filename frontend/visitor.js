@@ -39,6 +39,15 @@ Vue.createApp({
                     console.log(error)
                     alert("AN ERROR HAS OCCURED")
                 })
+        },
+        updateVisitor() {
+            axios
+                .put("http://localhost:8080/visitor/save", this.visitor)
+                .then(response => console.log(response))
+                .catch(function (error) {
+                    console.log(error)
+                    alert("AN ERROR HAS OCCURED")
+                })
         }
         // getAllVisitors() {
         //     axios
