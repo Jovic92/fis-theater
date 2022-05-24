@@ -38,6 +38,25 @@
                         aria-describedby="inputGroup-sizing-default" v-model="showName">
                 </div>
                 <button class="btn btn-primary" v-on:click="find">Find</button>
+                <br><br><br>
+                <h1>{{message}}</h1>
+                <br>                
+                <div v-if="roles.length != 0">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="role in roles">
+                                <td>{{role.idRole}}</td>
+                                <td>{{role.name}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </section>
         </div>
     </div>
