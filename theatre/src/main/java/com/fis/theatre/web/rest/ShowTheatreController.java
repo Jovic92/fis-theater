@@ -43,7 +43,7 @@ public class ShowTheatreController {
 
 	@RequestMapping("/show/getAllShowsForActor")
 	public List<ShowDTO> getAllShowsForActor2(@RequestParam(defaultValue = "") String firstname,
-			@RequestParam(defaultValue = "") String lastname) {
+			@RequestParam(defaultValue = "", required = false, name = "ln") String lastname) {
 		return showService.getAllShowsForAnActor(firstname, lastname);
 	}
 

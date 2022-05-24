@@ -31,17 +31,42 @@
             <section id="show">
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">Actors Firstname</span>
-                    <input v-model="actor.firstname" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                  </div>
+                    <input v-model="actor.firstname" type="text" class="form-control" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-default">
+                </div>
 
-                  <div class="input-group mb-3">
+                <div class="input-group mb-3">
                     <span class="input-group-text" id="inputGroup-sizing-default">Actors Lastname</span>
-                    <input v-model="actor.lastname" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                  </div>
-                  
-                  <button class="btn btn-primary" v-on:click="search">
-                      Search
-                  </button>
+                    <input v-model="actor.lastname" type="text" class="form-control" aria-label="Sizing example input"
+                        aria-describedby="inputGroup-sizing-default">
+                </div>
+
+                <button class="btn btn-primary" v-on:click="search">
+                    Search
+                </button>
+                <br><br><br>
+                <div v-if="shows.length!=0">
+                    <table class="table table-info table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Length</th>
+                                <th scope="col">Genres</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="show in shows">
+                                <td>{{show.name}}</td>
+                                <td>{{show.description}}</td>
+                                <td>{{show.length}}</td>
+                                <td>
+                                <td v-for="g in show.genres">{{g}}</td>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </section>
         </div>
     </div>
