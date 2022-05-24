@@ -34,6 +34,18 @@ Vue.createApp({
                 .catch(function (error) {
                     alert("An error has occurred")
                 })
+        },
+        getAll(){
+            axios
+            .get("http://localhost:8080/show/getAll/")
+            .then(response => {
+                console.log(response)
+                this.shows = response.data
+            })
+            .catch(function (error) {
+                console.log(error)
+                alert("AN ERROR HAS OCCURED")
+            }) 
         }
     },
     mounted: function () {
