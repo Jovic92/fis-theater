@@ -11,7 +11,7 @@ Vue.createApp({
     methods: {
         buy() {
             axios
-                .post("http://localhost:8080/ticket/buy", ticket)
+                .post("http://localhost:8080/ticket/buy", this.ticket)
                 .then(response => {
                     console.log(response.data)
                 })
