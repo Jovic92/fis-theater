@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fis.theatre.service.ShowTheatreService;
@@ -37,6 +38,12 @@ public class ShowTheatreController {
 
 	@RequestMapping("/show/getAllShowsForActor/{firstname}/{lastname}")
 	public List<ShowDTO> getAllShowsForActor(@PathVariable String firstname, @PathVariable String lastname) {
+		return showService.getAllShowsForAnActor(firstname, lastname);
+	}
+
+	@RequestMapping("/show/getAllShowsForActor")
+	public List<ShowDTO> getAllShowsForActor2(@RequestParam(defaultValue = "") String firstname,
+			@RequestParam(defaultValue = "") String lastname) {
 		return showService.getAllShowsForAnActor(firstname, lastname);
 	}
 
