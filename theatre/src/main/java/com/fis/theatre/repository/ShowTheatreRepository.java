@@ -14,7 +14,8 @@ public interface ShowTheatreRepository extends JpaRepository<ShowTheatre, Intege
 //same methods
 	List<ShowTheatre> findDistinctByPerformances_ActsInPerformances_Acts_Actor_FirstNameAndPerformances_ActsInPerformances_Acts_Actor_LastName(
 			String firstname, String lastname);
-
+	List<ShowTheatre> findDistinctByPerformances_ActsInPerformances_Acts_Actor_FirstNameOrPerformances_ActsInPerformances_Acts_Actor_LastName(
+			String firstname, String lastname);
 	@Query("SELECT st FROM ShowTheatre st where st in "
 			+ "(select acts.role.showt from Acts acts where acts.actor.firstName like :fn "
 			+ "and acts.actor.lastName like :ln)")

@@ -57,7 +57,7 @@ public class ShowTheatreService {
 
 	public List<ShowDTO> getAllShowsForAnActor(String firsname, String lastname) {
 		List<ShowTheatre> shows = showRepo
-				.findDistinctByPerformances_ActsInPerformances_Acts_Actor_FirstNameAndPerformances_ActsInPerformances_Acts_Actor_LastName(
+				.findDistinctByPerformances_ActsInPerformances_Acts_Actor_FirstNameOrPerformances_ActsInPerformances_Acts_Actor_LastName(
 						firsname, lastname);
 		List<ShowDTO> returnList = new ArrayList<ShowDTO>();
 		System.out.println(shows.size());
