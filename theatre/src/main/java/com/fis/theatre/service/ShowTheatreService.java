@@ -41,7 +41,7 @@ public class ShowTheatreService {
 			temp.setName(show.getName());
 			temp.setLength(show.getLength());
 			temp.setDescription(show.getDescription());
-
+			temp.setId(show.getIdShow());
 			List<String> genersString = new ArrayList<String>();
 			for (GenreShow gs : show.getGenreShows()) {
 				String genre = gs.getGenre().getName();

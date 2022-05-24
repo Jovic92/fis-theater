@@ -45,7 +45,36 @@
                         aria-describedby="inputGroup-sizing-default" v-model="actor.lastName">
                 </div>
                 <button class="btn btn-primary" v-on:click="addActor">Add actor</button>
-                <button class="btn btn-primary" v-on:click="saveRole">Save role</button>
+                <br><br><br>
+                <div v-if="shows.length != 0">
+                    <div class="input-group mb-3">
+                        <h5>Please select a show</h5>
+                        <select v-on:click="setSelectedShow" class="form-select" aria-label="Default select example"
+                            v-model="showNameForSearch">
+                            <option v-for="show in shows">{{show.name}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <br><br><br>
+                <div v-if="roles.length != 0">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="role in roles">
+                                <td>{{role.idRole}}</td>
+                                <td>{{role.name}}</td>
+                                <td><button class="btn btn-warning" v-on:click="saveRole(role.idRole)">Assign a
+                                        role</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </section>
         </div>
     </div>

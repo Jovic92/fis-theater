@@ -4,6 +4,7 @@ import java.util.List;
 
 public class ShowDTO {
 
+	private Integer id;
 	private String name;
 	private String description;
 	private int length;
@@ -52,6 +53,14 @@ public class ShowDTO {
 
 	public void setGenres(List<String> genres) {
 		this.genres = genres;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 }
