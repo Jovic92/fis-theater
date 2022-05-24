@@ -11,7 +11,8 @@ Vue.createApp({
                 firstname: '',
                 lastname: ''
             },
-            shows:[]
+            shows: [],
+            message: ''
         }
     },
     methods: {
@@ -24,6 +25,11 @@ Vue.createApp({
                 .then(response => {
                     this.shows = response.data
                     console.log(this.shows)
+                    if (this.shows.length == 0) {
+                        this.message = "THERE ARE NO RESULTS"
+                    } else {
+                        this.message = ""
+                    }
                 })
                 .catch(function (error) {
                     alert("An error has occurred")
