@@ -1,14 +1,22 @@
 Vue.createApp({
     data() {
-      return {
-        
-      }
+        return {
+            show: {
+                name: '',
+                description: '',
+                length: 0,
+                genres: []
+            },
+            actor: {
+                firstname: '',
+                lastname: ''
+            }
+        }
     },
     methods: {
-      
+
     },
-    mounted: function() {
-      
+    mounted: function () {
+
     }
-  }).mount("#show")
-  
+}).mount("#show")

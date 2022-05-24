@@ -25,9 +25,26 @@
 </head>
 
 <body>
-    <section id="show">
+    <br><br><br>
+    <div class="container">
+        <div class="container-fluid">
+            <section id="show">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Actors Firstname</span>
+                    <input v-model="actor.firstname" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                  </div>
 
-    </section>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Actors Lastname</span>
+                    <input v-model="actor.lastname" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                  </div>
+                  
+                  <button class="btn btn-primary" v-on:click="search">
+                      Search
+                  </button>
+            </section>
+        </div>
+    </div>
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
