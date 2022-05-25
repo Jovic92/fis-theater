@@ -47,8 +47,13 @@ Vue.createApp({
 
     },
     mounted: function () {
+        axios.defaults.headers.common['Authorization'] = `Bearer eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJiYWNrZW5kIiwic3ViIjoibSIsImF1ZCI6IndlYiIsImlhdCI6MTY1MzUwMDQwMCwiZXhwIjoxNjUzNTAyMjAwfQ.LWwwO2-iyb5I5lkUkakF4wZZLcENL9acKAyPVUTHLEQN9UDYZ34EvEel0Y9vDi5X4fI0ZSpISuW0MdrMt15CFQ` 
         axios
-            .get("http://localhost:8080/genre/all")
+            .get("http://localhost:8080/genre/all", {
+                // headers: {
+                //     'Authorization': 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJiYWNrZW5kIiwic3ViIjoibSIsImF1ZCI6IndlYiIsImlhdCI6MTY1MzUwMDQwMCwiZXhwIjoxNjUzNTAyMjAwfQ.LWwwO2-iyb5I5lkUkakF4wZZLcENL9acKAyPVUTHLEQN9UDYZ34EvEel0Y9vDi5X4fI0ZSpISuW0MdrMt15CFQ'
+                // }
+            })
             .then(response => {
                 this.genres = response.data
             })
@@ -57,3 +62,9 @@ Vue.createApp({
             })
     }
 }).mount("#genre-act")
+
+
+// login page
+//token set in localstorage
+// localStorage.set["k", token]
+// axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.get["k"]
