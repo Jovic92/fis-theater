@@ -41,6 +41,29 @@
                             <tr v-for="director in directors">
                                 <td>{{director.firstname}}</td>
                                 <td>{{director.lastname}}</td>
+                                <td><button class="btn btn-success" v-on:click="getShows(director.id)">Show
+                                        shows</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <br><br><br>
+                <div v-if="shows.length !=0">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Length</th>
+                                <th scope="col">Genres</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="show in shows">
+                                <td>{{show.name}}</td>
+                                <td>{{show.description}}</td>
+                                <td>{{show.length}}</td>
+                                <td>{{show.tempGeneres}}</td>
                             </tr>
                         </tbody>
                     </table>
